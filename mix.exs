@@ -6,13 +6,14 @@ defmodule BusinessApp.Mixfile do
       app: :business_app,
       version: "0.0.1",
       elixir: "~> 1.4",
-      elixirc_paths: elixirc_paths(Mix.env),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers,
-      start_permanent: Mix.env == :prod,
+      elixirc_paths: elixirc_paths(Mix.env()),
+      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
     ]
   end
+
 
   # Configuration for the OTP application.
   #
@@ -20,13 +21,20 @@ defmodule BusinessApp.Mixfile do
   def application do
     [
       mod: {BusinessApp.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :comeonin],
     ]
   end
 
+
   # Specifies which paths to compile per environment.
-  defp elixirc_paths(:test), do: ["lib", "test/support"]
-  defp elixirc_paths(_),     do: ["lib"]
+  defp elixirc_paths(:test) do
+    ["lib", "test/support"]
+  end
+
+  defp elixirc_paths(_) do
+    ["lib"]
+  end
+
 
   # Specifies your project dependencies.
   #
@@ -38,12 +46,18 @@ defmodule BusinessApp.Mixfile do
       {:phoenix_ecto, "~> 3.2"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.10"},
-      {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:phoenix_live_reload, "~> 1.0", [only: :dev]},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:guardian, "~> 0.14"},
+      {:comeonin, "~> 2.5.3"},
+      {:exfmt, [github: "lpil/exfmt"]},
+      {:cowboy, "~> 1.0"},
     ]
   end
 
+
+  #authentication
+  #format code
   # Aliases are shortcuts or tasks specific to the current project.
   # For example, to create, migrate and run the seeds file at once:
   #
@@ -54,7 +68,7 @@ defmodule BusinessApp.Mixfile do
     [
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      "test": ["ecto.create --quiet", "ecto.migrate", "test"]
+      test: ["ecto.create --quiet", "ecto.migrate", "test"],
     ]
   end
 end
