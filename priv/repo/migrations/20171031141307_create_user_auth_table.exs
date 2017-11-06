@@ -7,9 +7,7 @@ defmodule BusinessApp.Repo.Migrations.CreateUserAuthTable do
       add :name, :string
       add :password_hash, :string
       timpestamps()
-
     end
-    create unique_index(:users,[:email])
-
+    create unique_index(:users, [:email])
   end
 end
