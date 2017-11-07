@@ -25,6 +25,7 @@ defmodule BusinessAppWeb.Router do
     scope "/v1", Api.V1, as: :v1 do
       post "/registration", RegistrationController, :create
       post "/login", SessionController, :create
+      get "/user_topic/:id", UserTopicController,:user_topic
       delete "/sessions", SessionController, :delete
     end
   end
