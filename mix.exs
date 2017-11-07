@@ -21,7 +21,7 @@ defmodule BusinessApp.Mixfile do
   def application do
     [
       mod: {BusinessApp.Application, []},
-      extra_applications: [:logger, :runtime_tools, :comeonin],
+      extra_applications: [:logger, :runtime_tools, :comeonin,:faker],
     ]
   end
 
@@ -49,6 +49,7 @@ defmodule BusinessApp.Mixfile do
       {:phoenix_live_reload, "~> 1.0", [only: :dev]},
       {:gettext, "~> 0.11"},
       {:guardian, "~> 0.14"},
+      {:faker, "~> 0.9"},
       {:comeonin, "~> 2.5.3"},
       {:exfmt, [github: "lpil/exfmt"]},
       {:cowboy, "~> 1.0"},
