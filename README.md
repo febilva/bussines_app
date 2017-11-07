@@ -7,6 +7,7 @@ To start your Phoenix server:
   * seed database using "mix run priv/repo/seeds.exs"
   * Start Phoenix endpoint with `mix phx.server`
   * uncomment the "plug Guardian.Plug.EnsureAuthenticated, handler: BusinessAppWeb.Api.V1.SessionController" for Authentication for the actions
+  * postman request collection https://documenter.getpostman.com/view/882716/bussiness_app/77ib2qH
 
 
 <!-- Now you can visit [`localhost:4000`](http://localhost:4000) from your browser. -->
