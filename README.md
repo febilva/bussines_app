@@ -6,6 +6,8 @@ To start your Phoenix server:
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
   * seed database using "mix run priv/repo/seeds.exs"
   * Start Phoenix endpoint with `mix phx.server`
+  * uncomment the "plug Guardian.Plug.EnsureAuthenticated, handler: BusinessAppWeb.Api.V1.SessionController" for Authentication for the actions
+
 
 <!-- Now you can visit [`localhost:4000`](http://localhost:4000) from your browser. -->
 
