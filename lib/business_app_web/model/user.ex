@@ -11,6 +11,7 @@ defmodule BusinessAppWeb.User do
     field :name, :string
     field :password_hash, :string
     field :password, :string, virtual: true
+    many_to_many :topics, BusinessAppWeb.Topic,join_through: "topic_of_interestes" 
   end
   # timestamps()
   def changeset(struct, params) do
