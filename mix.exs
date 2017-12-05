@@ -21,7 +21,7 @@ defmodule CinemaApp.Mixfile do
   def application do
     [
       mod: {CinemaApp.Application, []},
-      extra_applications: [:logger, :runtime_tools, :comeonin,:faker],
+      extra_applications: [:logger, :runtime_tools, :comeonin,:faker,:coherence],
     ]
   end
 
@@ -50,9 +50,11 @@ defmodule CinemaApp.Mixfile do
       {:gettext, "~> 0.11"},
       {:guardian, "~> 0.14"},
       {:faker, "~> 0.9"},
-      {:comeonin, "~> 2.5.3"},
+      {:comeonin, "~> 3.2"},
       {:exfmt, [github: "lpil/exfmt"]},
       {:cowboy, "~> 1.0"},
+      #authentication
+      {:coherence, "~> 0.5",override: true},
     ]
   end
 

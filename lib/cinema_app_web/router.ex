@@ -18,6 +18,8 @@ defmodule CinemaAppWeb.Router do
     resources "/ticketbookings", TicketBookingController
     resources "/seats", SeatController
     resources "/users", UserController
+    resources "/registrations", RegistrationController, only: [:new, :create]
+
   end
   # Other scopes may use custom stacks.
   # scope "/api", CinemaAppWeb do
