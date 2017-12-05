@@ -1,4 +1,4 @@
-# BusinessApp
+# CinemaApp
 
 To start your Phoenix server:
 
@@ -6,7 +6,7 @@ To start your Phoenix server:
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
   * seed database using "mix run priv/repo/seeds.exs"
   * Start Phoenix endpoint with `mix phx.server`
-  * uncomment the "plug Guardian.Plug.EnsureAuthenticated, handler: BusinessAppWeb.Api.V1.SessionController" for Authentication for the actions
+  * uncomment the "plug Guardian.Plug.EnsureAuthenticated, handler: CinemaAppWeb.Api.V1.SessionController" for Authentication for the actions
   * postman request collection https://documenter.getpostman.com/view/882716/bussiness_app/77ib2qH
 
 

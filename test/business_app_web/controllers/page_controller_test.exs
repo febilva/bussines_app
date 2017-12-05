@@ -1,5 +1,5 @@
-defmodule BusinessAppWeb.PageControllerTest do
-  use BusinessAppWeb.ConnCase
+defmodule CinemaAppWeb.PageControllerTest do
+  use CinemaAppWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

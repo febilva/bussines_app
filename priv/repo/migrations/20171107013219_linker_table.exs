@@ -1,4 +1,4 @@
-defmodule BusinessApp.Repo.Migrations.LinkerTable do
+defmodule CinemaApp.Repo.Migrations.LinkerTable do
   use Ecto.Migration
 
   def change do

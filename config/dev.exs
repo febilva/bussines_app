@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :business_app, BusinessAppWeb.Endpoint,
+config :cinema_app, CinemaAppWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -30,13 +30,13 @@ config :business_app, BusinessAppWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :business_app, BusinessAppWeb.Endpoint,
+config :cinema_app, CinemaAppWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
-      ~r{lib/business_app_web/views/.*(ex)$},
-      ~r{lib/business_app_web/templates/.*(eex)$}
+      ~r{lib/cinema_app_web/views/.*(ex)$},
+      ~r{lib/cinema_app_web/templates/.*(eex)$}
     ]
   ]
 
@@ -48,10 +48,10 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
-config :business_app, BusinessApp.Repo,
+config :cinema_app, CinemaApp.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "business_app_dev",
+  database: "cinema_app_dev",
   hostname: "localhost",
   pool_size: 10

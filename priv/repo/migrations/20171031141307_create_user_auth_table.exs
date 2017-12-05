@@ -1,4 +1,4 @@
-defmodule BusinessApp.Repo.Migrations.CreateUserAuthTable do
+defmodule CinemaApp.Repo.Migrations.CreateUserAuthTable do
   use Ecto.Migration
 
   def change do
@@ -6,7 +6,7 @@ defmodule BusinessApp.Repo.Migrations.CreateUserAuthTable do
       add :email, :string
       add :name, :string
       add :password_hash, :string
-      timpestamps()
+      timestamps()
     end
     create unique_index(:users, [:email])
   end

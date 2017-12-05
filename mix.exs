@@ -1,9 +1,9 @@
-defmodule BusinessApp.Mixfile do
+defmodule CinemaApp.Mixfile do
   use Mix.Project
 
   def project do
     [
-      app: :business_app,
+      app: :cinema_app,
       version: "0.0.1",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -20,7 +20,7 @@ defmodule BusinessApp.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {BusinessApp.Application, []},
+      mod: {CinemaApp.Application, []},
       extra_applications: [:logger, :runtime_tools, :comeonin,:faker],
     ]
   end

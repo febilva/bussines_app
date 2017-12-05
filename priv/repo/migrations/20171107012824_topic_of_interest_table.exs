@@ -1,4 +1,4 @@
-defmodule BusinessApp.Repo.Migrations.TopicOfInterestTable do
+defmodule CinemaApp.Repo.Migrations.TopicOfInterestTable do
   use Ecto.Migration
 
   def change do

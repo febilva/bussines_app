@@ -1,4 +1,4 @@
-defmodule BusinessApp.DataCase do
+defmodule CinemaApp.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule BusinessApp.DataCase do
 
   using do
     quote do
-      alias BusinessApp.Repo
+      alias CinemaApp.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import BusinessApp.DataCase
+      import CinemaApp.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(BusinessApp.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(CinemaApp.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(BusinessApp.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(CinemaApp.Repo, {:shared, self()})
     end
 
     :ok

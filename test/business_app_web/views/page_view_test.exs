@@ -1,3 +1,3 @@
-defmodule BusinessAppWeb.PageViewTest do
-  use BusinessAppWeb.ConnCase, async: true
+defmodule CinemaAppWeb.PageViewTest do
+  use CinemaAppWeb.ConnCase, async: true
 end
