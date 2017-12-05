@@ -1,0 +1,28 @@
+<h2>Show Ticket booking</h2>
+
+<ul>
+
+  <li>
+    <strong>Show time:</strong>
+    <%= @ticket_booking.show_time %>
+  </li>
+
+  <li>
+    <strong>Seat:</strong>
+    <%= @ticket_booking.seat_id %>
+  </li>
+
+  <li>
+    <strong>Show status:</strong>
+    <%= @ticket_booking.show_status %>
+  </li>
+
+  <li>
+    <strong>Ticket booking code:</strong>
+    <%= @ticket_booking.ticket_booking_code %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: ticket_booking_path(@conn, :edit, @ticket_booking) %></span>
+<span><%= link "Back", to: ticket_booking_path(@conn, :index) %></span>

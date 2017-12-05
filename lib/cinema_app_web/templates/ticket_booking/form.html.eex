@@ -1,0 +1,35 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :show_time, class: "control-label" %>
+    <%= datetime_select f, :show_time, class: "form-control" %>
+    <%= error_tag f, :show_time %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :seat_id, class: "control-label" %>
+    <%= number_input f, :seat_id, class: "form-control" %>
+    <%= error_tag f, :seat_id %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :show_status, class: "control-label" %>
+    <%= text_input f, :show_status, class: "form-control" %>
+    <%= error_tag f, :show_status %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :ticket_booking_code, class: "control-label" %>
+    <%= text_input f, :ticket_booking_code, class: "form-control" %>
+    <%= error_tag f, :ticket_booking_code %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

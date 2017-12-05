@@ -1,0 +1,30 @@
+<h2>Listing Seats</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Seat no</th>
+      <th>Seat code</th>
+      <th>Seat name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for seat <- @seats do %>
+    <tr>
+      <td><%= seat.seat_no %></td>
+      <td><%= seat.seat_code %></td>
+      <td><%= seat.seat_name %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: seat_path(@conn, :show, seat), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: seat_path(@conn, :edit, seat), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: seat_path(@conn, :delete, seat), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Seat", to: seat_path(@conn, :new) %></span>

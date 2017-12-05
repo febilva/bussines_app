@@ -1,0 +1,23 @@
+<h2>Show Seat</h2>
+
+<ul>
+
+  <li>
+    <strong>Seat no:</strong>
+    <%= @seat.seat_no %>
+  </li>
+
+  <li>
+    <strong>Seat code:</strong>
+    <%= @seat.seat_code %>
+  </li>
+
+  <li>
+    <strong>Seat name:</strong>
+    <%= @seat.seat_name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: seat_path(@conn, :edit, @seat) %></span>
+<span><%= link "Back", to: seat_path(@conn, :index) %></span>

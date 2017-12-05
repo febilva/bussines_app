@@ -1,0 +1,32 @@
+<h2>Listing Ticketbookings</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Show time</th>
+      <th>Seat</th>
+      <th>Show status</th>
+      <th>Ticket booking code</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for ticket_booking <- @ticketbookings do %>
+    <tr>
+      <td><%= ticket_booking.show_time %></td>
+      <td><%= ticket_booking.seat_id %></td>
+      <td><%= ticket_booking.show_status %></td>
+      <td><%= ticket_booking.ticket_booking_code %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: ticket_booking_path(@conn, :show, ticket_booking), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: ticket_booking_path(@conn, :edit, ticket_booking), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: ticket_booking_path(@conn, :delete, ticket_booking), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Ticket booking", to: ticket_booking_path(@conn, :new) %></span>
