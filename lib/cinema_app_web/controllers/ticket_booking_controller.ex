@@ -5,13 +5,17 @@ defmodule CinemaAppWeb.TicketBookingController do
   alias CinemaApp.Bookings.TicketBooking
 
   def index(conn, _params) do
+
     ticketbookings = Bookings.list_ticketbookings()
     render(conn, "index.html", ticketbookings: ticketbookings)
   end
 
   def new(conn, _params) do
     changeset = Bookings.change_ticket_booking(%TicketBooking{})
-    render(conn, "new.html", changeset: changeset)
+    #getting all seats
+    # query = from(c in Seat, select: {c.id, c.name})
+    seats = Bookings.select_seats
+    render(conn, "new.html", changeset: changeset,seats: seats)
   end
 
   def create(conn, %{"ticket_booking" => ticket_booking_params}) do

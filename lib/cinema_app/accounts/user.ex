@@ -11,7 +11,6 @@ defmodule CinemaApp.Accounts.User do
   schema "users" do
     field :email, :string
     field :name, :string
-    field :password_for_future_change, :string
     field :username, :string
     coherence_schema()                                    # Add this
 
@@ -20,11 +19,11 @@ defmodule CinemaApp.Accounts.User do
   end
 
   @doc false
-  def changeset(%User{} = user, attrs) do
-    user
-    |> cast(attrs, [:name, :email] ++ coherence_fields)  # Add this
+  def changeset(model, params \\ %{}) do
+    model
+    |> cast(params, [:name, :email] ++ coherence_fields)  # Add this
     |> validate_required([:name, :email])
     |> validate_format(:email, ~r/@/)
-    |> validate_coherence(attrs)                         # Add this
+    |> validate_coherence(params)                         # Add this
   end
 end
