@@ -20,6 +20,19 @@ defmodule CinemaApp.Bookings do
   def list_seats do
     Repo.all(Seat)
   end
+  @doc """
+  Returns the list of seats.
+
+  ## Examples
+
+      iex> list_seats()
+      [%Seat{}, ...]
+
+  """
+  def select_seats do
+    query = from(c in Seat, select: {c.id, c.seat_no})
+    Repo.all(query)
+  end
 
   @doc """
   Gets a single seat.

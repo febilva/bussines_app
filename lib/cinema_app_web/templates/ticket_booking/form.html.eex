@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= label f, :seat_id, class: "control-label" %>
-    <%= number_input f, :seat_id, class: "form-control" %>
+    <%= select f, :seat_id, @seats, class: "form-control" %>
     <%= error_tag f, :seat_id %>
   </div>
 
