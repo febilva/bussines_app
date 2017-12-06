@@ -6,6 +6,7 @@ defmodule CinemaApp.Accounts.User do
 
   import Ecto.Changeset
   alias CinemaApp.Accounts.User
+  alias CinemaApp.Bookings.{TicketBooking,Seat}
 
 
   schema "users" do
@@ -14,6 +15,8 @@ defmodule CinemaApp.Accounts.User do
     field :username, :string
     coherence_schema()                                    # Add this
 
+    has_many :ticket_bookings,TicketBooking
+    has_many :seats, Seat
 
     timestamps()
   end
