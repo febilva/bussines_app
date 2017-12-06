@@ -6,7 +6,7 @@ defmodule CinemaApp.Repo.Migrations.CreateUsers do
       add :name, :string
       add :username, :string
       add :email, :string
-      add :password_hash, :string
+      add :password_has_for_change, :string
 
       timestamps()
     end
