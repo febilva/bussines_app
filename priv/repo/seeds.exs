@@ -12,29 +12,33 @@
 alias CinemaApp.Repo
 alias CinemaAppWeb.Topic
 
-changeset =
-  CinemaAppWeb.User.changeset(%CinemaAppWeb.User{},
-                                %{
-                                  email: "munnefg.tvr@gmail.com",
-                                  password: "Password666",
-                                  name: "febil.tvr",
-                                })
-{:ok, user} = CinemaApp.Repo.insert(changeset)
-user = CinemaApp.Repo.preload(user, :topics)
-topic_changeset = %Topic{topic_name: Faker.String.base64()}
-# {:ok,topic} = CinemaApp.Repo.insert(topic_changeset)
-# topic = CinemaApp.Repo.preload(topic, :users)
+CinemaApp.Repo.delete_all CinemaApp.Accounts.User
+
+CinemaApp.Accounts.User.changeset(%CinemaApp.Accounts.User{}, %{name: "Test User", email: "testuser@example.com", password: "secret", password_confirmation: "secret"})
+|> CinemaApp.Repo.insert!
 # changeset =
-#   Ecto.Changeset.change(user)
-#   |> Ecto.Changeset.put_assoc(:topics, [topic])
-# Repo.update changeset
-1..20
-|> Enum.each(fn x ->
-               {:ok, topic} = CinemaApp.Repo.insert(topic_changeset)
-               topic = CinemaApp.Repo.preload(topic, :users)
-               changeset =
-                 Ecto.Changeset.change(user)
-                 |> Ecto.Changeset.put_assoc(:topics, [topic])
-                 Repo.update changeset
-             end)
-# (1..21) |> Enum.each(fn(x) -> Repo.insert(topic_changeset) |> Repo.preload(:) end)
+#   CinemaAppWeb.User.changeset(%CinemaAppWeb.User{},
+#                                 %{
+#                                   email: "munnefg.tvr@gmail.com",
+#                                   password: "Password666",
+#                                   name: "febil.tvr",
+#                                 })
+# {:ok, user} = CinemaApp.Repo.insert(changeset)
+# user = CinemaApp.Repo.preload(user, :topics)
+# topic_changeset = %Topic{topic_name: Faker.String.base64()}
+# # {:ok,topic} = CinemaApp.Repo.insert(topic_changeset)
+# # topic = CinemaApp.Repo.preload(topic, :users)
+# # changeset =
+# #   Ecto.Changeset.change(user)
+# #   |> Ecto.Changeset.put_assoc(:topics, [topic])
+# # Repo.update changeset
+# 1..20
+# |> Enum.each(fn x ->
+#                {:ok, topic} = CinemaApp.Repo.insert(topic_changeset)
+#                topic = CinemaApp.Repo.preload(topic, :users)
+#                changeset =
+#                  Ecto.Changeset.change(user)
+#                  |> Ecto.Changeset.put_assoc(:topics, [topic])
+#                  Repo.update changeset
+#              end)
+# # (1..21) |> Enum.each(fn(x) -> Repo.insert(topic_changeset) |> Repo.preload(:) end)
