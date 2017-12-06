@@ -1,7 +1,10 @@
 defmodule CinemaAppWeb.TicketBookingController do
+  require IEx
   use CinemaAppWeb, :controller
-
+  import Ecto
   alias CinemaApp.Bookings
+  alias CinemaApp.Accounts
+  alias CinemaApp.Accounts.User
   alias CinemaApp.Bookings.TicketBooking
 
   def index(conn, _params) do
@@ -19,13 +22,21 @@ defmodule CinemaAppWeb.TicketBookingController do
   end
 
   def create(conn, %{"ticket_booking" => ticket_booking_params}) do
-    case Bookings.create_ticket_booking(ticket_booking_params) do
+
+    current_user = Coherence.current_user(conn)
+    user = Accounts.get_user!(current_user.id)
+    # IEx.pry
+    build_association = Ecto.build_assoc(current_user, :ticket_bookings,ticket_booking_params)
+    # IEx.pry
+
+    case Bookings.create_ticket_booking(build_association,ticket_booking_params) do
       {:ok, ticket_booking} ->
         conn
         |> put_flash(:info, "Ticket booking created successfully.")
         |> redirect(to: ticket_booking_path(conn, :show, ticket_booking))
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        seats = Bookings.select_seats
+        render(conn, "new.html", changeset: changeset,seats: seats)
     end
   end
 

@@ -1,7 +1,9 @@
 defmodule CinemaApp.Bookings do
+  require IEx
   @moduledoc """
   The Bookings context.
   """
+  import Ecto
 
   import Ecto.Query, warn: false
   alias CinemaApp.Repo
@@ -158,10 +160,13 @@ defmodule CinemaApp.Bookings do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_ticket_booking(attrs \\ %{}) do
-    %TicketBooking{}
+  def create_ticket_booking(struct,attrs \\ %{}) do
+    # IEx.pry
+    struct
+    # |> Ecto.build_assoc(current_user,:ticket_bookings,attrs)
     |> TicketBooking.changeset(attrs)
     |> Repo.insert()
+
   end
 
   @doc """

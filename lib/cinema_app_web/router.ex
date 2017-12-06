@@ -36,11 +36,14 @@ defmodule CinemaAppWeb.Router do
    pipe_through :browser
    get "/", PageController, :index
    # Add public routes below
+
  end
 
  scope "/", CinemaAppWeb do
    pipe_through :protected
    # Add protected routes below
+   resources "/ticketbookings", TicketBookingController
+   
  end
  #coherence config end
 
@@ -51,7 +54,6 @@ defmodule CinemaAppWeb.Router do
     pipe_through :browser
     # Use the default browser stack
     get "/", PageController, :index
-    resources "/ticketbookings", TicketBookingController
     resources "/seats", SeatController
     resources "/users", UserController
 
